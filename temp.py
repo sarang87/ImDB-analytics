@@ -83,6 +83,8 @@ for idx, x in enumerate(movie.language):
 for idx, x in enumerate(language_value):
     movie.set_value(idx,'language', language_value[idx])
     
+    movie.to_csv('all_num_IMDB.csv')
+    
 
     
 
