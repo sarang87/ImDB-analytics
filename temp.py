@@ -11,7 +11,7 @@ import pandas as pandas
 
 
 #print movie
-movie = pandas.read_csv('../../csv/pruned_movie_metadata.csv')
+movie = pandas.read_csv('pruned_movie_metadata.csv')
 
 # calculate the unique genres across all colums and store them ina dictionary
 pd1 = movie.g1.unique()
