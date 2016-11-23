@@ -64,6 +64,13 @@ pd4 = (movie.country.unique())
 cleanedCountryList = [x for x in pd4 if str(x) != 'nan']
 country_dict= {cleanedCountryList[x]:x+1 for x in range(len(cleanedCountryList))}
 
+pd5 = movie.content_rating.unique()
+cleanedCRList = [x for x in pd5 if str(x) != 'nan']
+CR_dict = {cleanedCRList[x]:x+1 for x in range(len(cleanedCRList))}    
+#print CR_dict
+
+
+
 
 # for each value in tthe column country
 # find the corresponding value in the dictionary
@@ -75,6 +82,8 @@ for idx, x in enumerate(movie.country):
 for idx, x in enumerate(country_value):
     movie.set_value(idx,'country', country_value[idx])
 
+
+
 language_value =[]
 for idx, x in enumerate(movie.language):
     language_value.insert(idx,language_dict.get(x))
@@ -83,13 +92,14 @@ for idx, x in enumerate(movie.language):
 for idx, x in enumerate(language_value):
     movie.set_value(idx,'language', language_value[idx])
     
-    movie.to_csv('all_num_IMDB.csv')
+
+
+CR_value = []
+for idx,x in enumerate(movie.content_rating):
+    CR_value.append(CR_dict.get(x))
     
-
+for idx,x in enumerate(movie.content_rating):
+    movie.set_value(idx, 'content_rating', CR_value[idx])
     
-
-
-
-
-
     
+movie.to_csv('all_num_IMDB.csv')
