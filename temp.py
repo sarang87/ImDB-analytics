@@ -64,6 +64,7 @@ pd4 = (movie.country.unique())
 cleanedCountryList = [x for x in pd4 if str(x) != 'nan']
 country_dict= {cleanedCountryList[x]:x+1 for x in range(len(cleanedCountryList))}
 
+
 pd5 = movie.content_rating.unique()
 cleanedCRList = [x for x in pd5 if str(x) != 'nan']
 CR_dict = {cleanedCRList[x]:x+1 for x in range(len(cleanedCRList))}    
