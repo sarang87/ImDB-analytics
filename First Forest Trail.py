@@ -29,16 +29,17 @@ actualGross_df = pd.read_csv('grossactuals.csv')
 
 train_data = train_df.values
 test_data = test_df.values
-
-print 'Training...'
-forest = RandomForestClassifier(n_estimators=100)
-
+print train_df
+#
+#print 'Training...'
+#forest = RandomForestClassifier(n_estimators=100)
+#
 #forest = forest.fit(train_data[0::,1::],train_data[0::,0])
-ids = actualGross_df['id'].values
-gross = actualGross_df['gross'].values
-print len(gross)
-print len(test_data)
-
+#ids = actualGross_df['id'].values
+#gross = actualGross_df['gross'].values
+#print len(gross)
+#print len(test_data)
+#
 #print 'Predicting...'
 #output = forest.predict(test_data).astype(float)
 #
