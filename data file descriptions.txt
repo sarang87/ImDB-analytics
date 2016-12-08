@@ -1,0 +1,15 @@
+Master IMDB => Associated code file for cleaning data (datacleaning.py)
+This is the file with TV shows deleted. Language Country and Content Rating has been changed to nominal values. Gross valuea has around ~800 approximateely null
+
+After Imputation => Associated code file for cleaning data (datacleaning.py)
+This is the file with ~ 4100 records and the null values in other columns have been filled up using Imputer.
+
+Gross Actuals => FirstForest.py
+This file has the data values for the test data. It is used to compare the prediction results. Number of records is ~700.
+
+Train.csv
+This has the actual training data ~3400 records
+
+Test.csv
+This has the actual test data ~800 records
+
