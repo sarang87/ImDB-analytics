@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as numpy
 import csv as csv
 from sklearn.ensemble import RandomForestRegressor
-
 from sklearn.cross_validation import cross_val_score
 
 
