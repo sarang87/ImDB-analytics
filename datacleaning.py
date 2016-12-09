@@ -8,6 +8,16 @@ This is a temporary script file.
 import csv as csv
 import numpy as np
 import pandas as pandas
+#from sklearn.preprocessing import Imputer
+
+
+## code for fillling null values
+#movie = pd.read_csv('all_num_IMDB_before_imputation.csv')
+#i = Imputer (strategy = 'median')
+#i.fit(movie)
+#imputed_sample = i.transform(movie)
+#
+#numpy.savetxt('afterImputation.csv', imputed_sample, delimiter = ",")
 
 
 
@@ -124,6 +134,8 @@ for idx,x in enumerate(movie.content_rating):
     
 for idx,x in enumerate(movie.content_rating):
     movie.set_value(idx, 'content_rating', CR_value[idx])
+    
+
     
     
 #movie.to_csv('all_num_IMDB.csv')
