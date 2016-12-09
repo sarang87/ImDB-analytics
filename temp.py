@@ -10,6 +10,28 @@ import numpy as np
 import pandas as pandas
 
 
+
+
+
+#This is in order to be able to use dictionaries outside of this code
+import pickle
+
+# Store data (serialize)
+with open('filename.pickle', 'wb') as handle:
+    pickle.dump(your_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+# Load data (deserialize)
+with open('filename.pickle', 'rb') as handle:
+    unserialized_data = pickle.load(handle)
+
+print(your_data == unserialized_data)
+
+
+
+
+
+
+
 #print movie
 movie = pandas.read_csv('pruned_movie_metadata.csv')
 
@@ -58,17 +80,18 @@ print movie ['n18']
 pd3 = (movie.language.unique())
 cleanedLanguageList = [x for x in pd3 if str(x) != 'nan']
 language_dict= {cleanedLanguageList[x]:x+1 for x in range(len(cleanedLanguageList))}
-#print language_dict
+print language_dict
 
 pd4 = (movie.country.unique())
 cleanedCountryList = [x for x in pd4 if str(x) != 'nan']
 country_dict= {cleanedCountryList[x]:x+1 for x in range(len(cleanedCountryList))}
+print country_dict
 
 
 pd5 = movie.content_rating.unique()
 cleanedCRList = [x for x in pd5 if str(x) != 'nan']
 CR_dict = {cleanedCRList[x]:x+1 for x in range(len(cleanedCRList))}    
-#print CR_dict
+print CR_dict
 
 
 
@@ -103,4 +126,4 @@ for idx,x in enumerate(movie.content_rating):
     movie.set_value(idx, 'content_rating', CR_value[idx])
     
     
-movie.to_csv('all_num_IMDB.csv')
+#movie.to_csv('all_num_IMDB.csv')
