@@ -13,3 +13,6 @@ This has the actual training data ~3400 records
 Test.csv
 This has the actual test data ~800 records
 
+output_afterImputation_country
+This file has the country and language data arranged column wise in 0s and 1s. The train and test data files should be generated from this file.
+

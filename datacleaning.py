@@ -8,6 +8,7 @@ This is a temporary script file.
 import csv as csv
 import numpy as np
 import pandas as pandas
+import pickle
 #from sklearn.preprocessing import Imputer
 
 
@@ -18,28 +19,6 @@ import pandas as pandas
 #imputed_sample = i.transform(movie)
 #
 #numpy.savetxt('afterImputation.csv', imputed_sample, delimiter = ",")
-
-
-
-
-
-#This is in order to be able to use dictionaries outside of this code
-import pickle
-
-# Store data (serialize)
-with open('filename.pickle', 'wb') as handle:
-    pickle.dump(your_data, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-# Load data (deserialize)
-with open('filename.pickle', 'rb') as handle:
-    unserialized_data = pickle.load(handle)
-
-print(your_data == unserialized_data)
-
-
-
-
-
 
 
 #print movie
@@ -80,13 +59,6 @@ set_genre_column_bits(str = 'g8')
 print movie ['n18']
 
 
-
-
-
-
-
- 
-
 pd3 = (movie.language.unique())
 cleanedLanguageList = [x for x in pd3 if str(x) != 'nan']
 language_dict= {cleanedLanguageList[x]:x+1 for x in range(len(cleanedLanguageList))}
@@ -103,7 +75,10 @@ cleanedCRList = [x for x in pd5 if str(x) != 'nan']
 CR_dict = {cleanedCRList[x]:x+1 for x in range(len(cleanedCRList))}    
 print CR_dict
 
-
+#This is in order to be able to use dictionaries outside of this code
+pickle.dump(country_dict, open("country.p", "wb"))
+pickle.dump(language_dict, open("language.p", "wb"))
+pickle.dump(CR_dict, open("CR.p", "wb"))
 
 
 # for each value in tthe column country
