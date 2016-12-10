@@ -15,8 +15,8 @@ file_df = pd.read_csv(fileName, header = None)
 fileCountTrain = int(raw_input("Please provide the number of records for the training data file::"))
 fileCountTest = int(raw_input("Please provide the number of records for the test data file::"))
 
-train_df = pd.read_csv(fileName,nrows=fileCountTrain)
-test_df = pd.read_csv(fileName,skiprows=fileCountTrain, nrows=fileCountTest)
+train_df = pd.read_csv(fileName,nrows=fileCountTrain, header = 0)
+test_df = pd.read_csv(fileName,skiprows=fileCountTrain, nrows=fileCountTest, header = 0)
 
 train_df.to_csv('demo_train.csv')
 test_df.to_csv('demo_test.csv')
