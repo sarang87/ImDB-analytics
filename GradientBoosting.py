@@ -13,6 +13,7 @@ from sklearn import ensemble
 from sklearn import datasets
 from sklearn.utils import shuffle
 from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import cross_val_score
 
 # read in the test and training data files
 train_df = pd.read_csv("final_train.csv", header = 0)
@@ -28,17 +29,25 @@ y_test =  test_df.ix[:, :1].as_matrix()
 print X_train.shape,y_train.shape
 print type(X_train),type(y_train)
 
-params = {'n_estimators': 3500, 'max_depth': 4, 'min_samples_split': 4,
+params = {'n_estimators': 2000, 'max_depth': 4, 'min_samples_split': 4,
           'learning_rate': 0.01, 'loss': 'ls'}
 clf = ensemble.GradientBoostingRegressor(**params)
 
 clf.fit(X_train, y_train)
+#mse = mean_squared_error(y_test, clf.predict(X_test))
+#print("MSE: %.4f" % mse)
+#predicted = clf.predict(X_test)
+#feature_importance = clf.feature_importances_
+#print feature_importance.max()
+#feature_importance = 100.0 * (feature_importance / feature_importance.max())
+#sorted_idx = np.argsort(feature_importance)
+#print sorted_idx
+##np.savetxt("results_gb2.csv,",predicted)
+
+#CROSS VALIDATION
+scores = cross_val_score(clf, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
 mse = mean_squared_error(y_test, clf.predict(X_test))
-print("MSE: %.4f" % mse)
-predicted = clf.predict(X_test)
-feature_importance = clf.feature_importances_
-print feature_importance.max()
-feature_importance = 100.0 * (feature_importance / feature_importance.max())
-sorted_idx = np.argsort(feature_importance)
-print sorted_idx
-#np.savetxt("results_gb2.csv,",predicted)
+
+print scores
+print mse
+
