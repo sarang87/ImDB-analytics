@@ -28,7 +28,7 @@ y_test =  test_df.ix[:, :1].as_matrix()
 print X_train.shape,y_train.shape
 print type(X_train),type(y_train)
 
-params = {'n_estimators': 3500, 'max_depth': 4, 'min_samples_split': 4,
+params = {'n_estimators': 500, 'max_depth': 4, 'min_samples_split': 2,
           'learning_rate': 0.01, 'loss': 'ls'}
 clf = ensemble.GradientBoostingRegressor(**params)
 
@@ -37,8 +37,8 @@ mse = mean_squared_error(y_test, clf.predict(X_test))
 print("MSE: %.4f" % mse)
 predicted = clf.predict(X_test)
 feature_importance = clf.feature_importances_
-print feature_importance.max()
-feature_importance = 100.0 * (feature_importance / feature_importance.max())
+#print feature_importance.max()
+#feature_importance = 100.0 * (feature_importance / feature_importance.max())
 sorted_idx = np.argsort(feature_importance)
-print sorted_idx
+print feature_importance
 #np.savetxt("results_gb2.csv,",predicted)
