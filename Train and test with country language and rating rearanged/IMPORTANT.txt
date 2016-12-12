@@ -1,2 +1,0 @@
-Budget and Gross have been removed. IMDB score is the value to be predicted. It is the first column.
-Training is from 1-3440 and test is from 3440-end.
