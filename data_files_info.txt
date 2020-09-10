@@ -1,0 +1,35 @@
+Original dataset can be found at https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset. From this dataset transformation are applied using scripts to remove TV shows reducing the size by 700-800 rows. Imputer is used to fill up missing values. One Hot Encoding is used for subsequent trnasformation on categorical variables such as country(C1-C*), language (l1-l*), genres (n1-n26).
+
+
+***** FINAL ********
+imdb_transformed.csv
+This file has the country and language data arranged column wise in 0s and 1s. The train and test data files should be generated from this file.
+
+
+
+*********** RAW DATA FILE ************
+raw_data.csv => Original dataset
+
+
+******************************** INTERMEDIATE DATA FILES *****************************************
+intermediate_data_files/master_imdb.csv => Associated code file for cleaning data (datacleaning.py)
+This is the file with TV shows deleted. Language Country and Content Rating has been changed to nominal values. Gross valuea has around ~800 approximateely null
+
+intermediate_data_files/s1_imputed_genres_OHE.csv (s1 refers to step1 and OHE is One Hot Encoding for genres) => Associated code file for cleaning data (datacleaning.py)
+This is the file with ~ 4100 records and the null values in other columns have been filled up using Imputer.
+
+intermediate_data_files/s2_country_OHE.csv => Step 2 in cleaning and tranforming the data and applying OHE to coumtry field
+
+train.csv (needs to be generated separately from imdb_transformed.csv)
+This has the actual training data ~3400 records
+
+test.csv (needs to be generated separately from imdb_transformed.csv)
+This has the actual test data ~800 records
+
+
+
+******** SCRIPTS INFO ********
+Gross Actuals => FirstForest.py
+This file has the data values for the test data. It is used to compare the prediction results. Number of records is ~700.
+
+TODO
